@@ -9,7 +9,7 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-i", "--input", type=str, default="bdt_model_example.pkl", help="Input pkl file")
-parser.add_argument("-o", "--outDir", type=str, default="/home/submit/jaeyserm/public_html/fccee/bdt_xgboost/", help="Output directory")
+parser.add_argument("-o", "--outDir", type=str, default="/home/submit/natem297/FCCAnalyzer/analyses/examples/bdt_xgboost/", help="Output directory")
 args = parser.parse_args()
 
 

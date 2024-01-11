@@ -8,12 +8,12 @@
 
 #include "FCCAnalyses/JetClusteringUtils.h"
 
-#include "fastjet/install/include/fastjet/JetDefinition.hh"
-#include "fastjet/install/include/fastjet/PseudoJet.hh"
-#include "fastjet/install/include/fastjet/Selector.hh"
+// #include "fastjet/install/include/fastjet/JetDefinition.hh"
+// #include "fastjet/install/include/fastjet/PseudoJet.hh"
+// #include "fastjet/install/include/fastjet/Selector.hh"
 
 namespace FCCAnalyses {
-    
+
 class clustering_ee_genkt_c {
 
     public:
@@ -27,7 +27,7 @@ class clustering_ee_genkt_c {
         fastjet::RecombinationScheme _recombScheme;  ///<internal recombination scheme
         fastjet::ClusterSequence _cs;                ///<internal clustering sequence
         fastjet::JetDefinition _def;                 ///<internal jetdefinition sequence
-        
+
         clustering_ee_genkt_c(float arg_radius, int arg_exclusive, float arg_cut, int arg_sorted, int arg_recombination, float arg_exponent) {
             _radius = arg_radius;
             _exclusive = arg_exclusive;
@@ -48,7 +48,7 @@ class clustering_ee_genkt_c {
             if (_recombScheme == fastjet::RecombinationScheme::external_scheme)
               _def.set_recombiner(new ExternalRecombiner(_recombination));
         }
-        
+
         JetClustering::FCCAnalysesJet cluster(const std::vector<fastjet::PseudoJet>& input) {
 
 
@@ -69,7 +69,7 @@ class clustering_ee_genkt_c {
 
 
         }
-    
+
 };
 
 struct clustering_ee_genkt {
@@ -112,7 +112,7 @@ clustering_ee_genkt::clustering_ee_genkt(
     if (_recombScheme == fastjet::RecombinationScheme::external_scheme)
       _def.set_recombiner(new ExternalRecombiner(_recombination));
 }
-  
+
 
 
 JetClustering::FCCAnalysesJet clustering_ee_genkt::operator()(const std::vector<fastjet::PseudoJet>& input) {
@@ -131,7 +131,7 @@ JetClustering::FCCAnalysesJet clustering_ee_genkt::operator()(const std::vector<
     //transform to FCCAnalysesJet
     return FCCAnalyses::JetClusteringUtils::build_FCCAnalysesJet(pjets, dmerge, dmerge_max);
   }
-  
+
 
 class clustering_helper {
     public:
